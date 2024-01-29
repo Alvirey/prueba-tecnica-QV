@@ -159,7 +159,45 @@
                 <img src="logos/regist.png" alt="Operadora">
             </div>
             <div class="formulario-registro">
-                <form method="POST">
+                <form action="index.php" method="POST">
+                    <?php
+                        if(isset($_POST['nombre'])){
+                            $nombre = $_POST['nombre'];
+                            $contrasena = $_POST['contrasena'];
+                            $confcontrasena = $_POST['confirmarContrasena'];
+                            $email = $_POST['correo'];
+
+                            $campos = array();
+
+                            if($nombre == ""){
+                                array_push($campos, "El campo nobre no puede estar vacío");
+                            }
+
+                            if($contrasena != $confcontrasena){
+                                array_push($campos, "Las contraseñas no son iguales");
+                            }
+
+                            if($email == "" || strpos($email, "@") === false){
+                                array_push($campos, "Ingrese un correo valido");
+                            }
+
+                            if(count($campos) > 0){
+                                echo "<div class='error'>";
+                                for($i = 0; $i < count($campos); $i++){
+                                    echo "<li>".$campos[$i]."</li>";
+                                }
+                            }else{
+                                echo "<div class='correcto'>
+                                        Datos correctos";
+                            }
+                            echo "</div>";
+
+
+                        }
+                    
+                    ?>
+
+
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
 
@@ -263,58 +301,9 @@
             const btnRegistro = document.getElementById("btnRegistrarse");
             const terminosCheckbox = document.getElementById("aceptoTerminos");
             const politicaCheckbox = document.getElementById("aceptoPolitica");
-            const formularioRegistro = document.getElementById("registro");
-            const nombreInput = document.getElementById("nombre");
-            const apellidosInput = document.getElementById("apellidos");
-            const emailInput = document.getElementById("correo");
-            const passwordInput = document.getElementById("contrasena");
-            const confirmarPasswordInput = document.getElementById("confirmarContrasena");
 
             function verificarCheckboxes() {
                 return terminosCheckbox.checked && politicaCheckbox.checked;
-            }
-
-            // Función para validar el formulario
-            function validarRegistro() {
-                const regexSoloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-
-                if (!regexSoloLetras.test(nombreInput.value) || !regexSoloLetras.test(apellidosInput.value)) {
-                    mostrarError("nombre", "Nombre y apellido deben contener solo letras y espacios.");
-                    return;
-                }
-
-                const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!regexEmail.test(emailInput.value)) {
-                    mostrarError("correo", "Correo electrónico inválido.");
-                    return;
-                }
-
-                if (passwordInput.value !== confirmarPasswordInput.value) {
-                    mostrarError("contrasena", "La contraseña y la confirmación de la contraseña no coinciden.");
-                    return;
-                }
-
-                // Restablecer errores si se pasan todas las validaciones
-                resetearErrores();
-
-                alert("Registro exitoso");
-
-                // Actualiza el estado del botón de registro
-                actualizarEstadoBoton();
-
-                return true
-            }
-
-            // Función para mostrar mensajes de error
-            function mostrarError(campo, mensaje) {
-                const errorContainer = document.getElementById(`${campo}Error`);
-                errorContainer.textContent = mensaje;
-            }
-
-            // Función para restablecer los mensajes de error
-            function resetearErrores() {
-                const errores = document.querySelectorAll(".error");
-                errores.forEach((error) => (error.textContent = ""));
             }
 
             // Función para actualizar el estado del botón de registro
@@ -326,13 +315,6 @@
             // Agregar eventos a los checkboxes para actualizar el estado del botón
             terminosCheckbox.addEventListener("change", actualizarEstadoBoton);
             politicaCheckbox.addEventListener("change", actualizarEstadoBoton);
-
-            // Agregar evento al formulario para validar antes de enviar
-            formularioRegistro.addEventListener("click", function (event) {
-                // Realiza las validaciones necesarias antes de enviar el formulario
-                // Si alguna validación falla, puedes usar event.preventDefault();
-                validarRegistro();
-            });
         });
     </script>
 </body>

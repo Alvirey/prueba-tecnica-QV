@@ -347,6 +347,15 @@ h2 {
     padding: 20px;
 }
 
+.correcto {
+    font-size: 16px;
+}
+
+.error {
+    background-color: #ff9185;
+    font-size: 16px;
+}
+
 .formulario-registro {
     max-width: 600px;
     margin: 0 auto;
