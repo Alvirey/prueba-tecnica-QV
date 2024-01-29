@@ -159,7 +159,7 @@
                 <img src="logos/regist.png" alt="Operadora">
             </div>
             <div class="formulario-registro">
-                <form action="procesar_registro.php" method="POST">
+                <form method="POST">
                     <label for="nombre">Nombre:</label>
                     <input type="text" id="nombre" name="nombre" required>
 
@@ -263,7 +263,7 @@
             const btnRegistro = document.getElementById("btnRegistrarse");
             const terminosCheckbox = document.getElementById("aceptoTerminos");
             const politicaCheckbox = document.getElementById("aceptoPolitica");
-            const formularioRegistro = document.getElementById("formularioRegistro");
+            const formularioRegistro = document.getElementById("registro");
             const nombreInput = document.getElementById("nombre");
             const apellidosInput = document.getElementById("apellidos");
             const emailInput = document.getElementById("correo");
@@ -297,8 +297,12 @@
                 // Restablecer errores si se pasan todas las validaciones
                 resetearErrores();
 
+                alert("Registro exitoso");
+
                 // Actualiza el estado del botón de registro
                 actualizarEstadoBoton();
+
+                return true
             }
 
             // Función para mostrar mensajes de error
@@ -324,7 +328,7 @@
             politicaCheckbox.addEventListener("change", actualizarEstadoBoton);
 
             // Agregar evento al formulario para validar antes de enviar
-            formularioRegistro.addEventListener("submit", function (event) {
+            formularioRegistro.addEventListener("click", function (event) {
                 // Realiza las validaciones necesarias antes de enviar el formulario
                 // Si alguna validación falla, puedes usar event.preventDefault();
                 validarRegistro();

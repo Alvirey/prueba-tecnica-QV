@@ -8,9 +8,9 @@ body{
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     background-image: linear-gradient(rgba(45, 105, 233, 0.397), rgba(45, 105, 233, 0.397)), url('../logos/fondo.png'); /* Ruta de tu imagen WebP de fondo */
-    background-size: 100% 20%; /* Ajusta el tamaño de la imagen para cubrir toda la pantalla */
-    background-position: top left; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-size: 100% 20%; 
+    background-position: top left; 
+    background-repeat: no-repeat; 
     background-attachment: fixed;
     background-attachment: scroll;
     color: white;
@@ -124,17 +124,17 @@ nav a:hover {
 
 #btnacceder {
     display: block;
-    margin-top: 15px; /* Ajusta el margen según tus necesidades */
+    margin-top: 15px; 
 }
 
 #bncerrar {
     position: absolute;
-    top: 10px; /* Ajusta la distancia desde la parte superior según tus necesidades */
-    right: 10px; /* Ajusta la distancia desde la parte derecha según tus necesidades */
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    right: 10px; /* Ajusta la distancia desde la parte derecha */
     padding: 5px 10px;
     border-radius: 50%; /* Hace que el botón sea redondo */
-    background-color: #1D3A6C; /* Puedes cambiar el color de fondo según tus necesidades */
-    color: #fff; /* Puedes cambiar el color del texto según tus necesidades */
+    background-color: #1D3A6C; 
+    color: #fff; 
     border: none;
     cursor: pointer;
 }
@@ -163,12 +163,12 @@ main {
 
 .portada h1 {
     font-family: 'Nunito', sans-serif ;
-    font-size: 26px; /* Ajusta el tamaño de la fuente */
+    font-size: 26px; 
     margin-bottom: 30px; /* Añade un espacio en la parte inferior del título para mejorar la apariencia */
 }
 
 .portada p {
-    font-size: 16px; /* Ajusta el tamaño de la fuente del párrafo según tus preferencias */
+    font-size: 16px; 
     margin-left: 450px;
     margin-right: 450px;
 }
@@ -305,7 +305,7 @@ h2 {
 }
 
 .imagen-operadora img {
-    width: 500px; /* Ajusta el tamaño según sea necesario */
+    width: 500px; 
 }
 
 .formulario-registro {
