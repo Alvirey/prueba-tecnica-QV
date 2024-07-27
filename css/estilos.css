@@ -276,8 +276,8 @@ h2 {
 
 /* Estilos para el contenedor de imágenes de aliados */
 .imagenes-aliados {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    display: flex;
+    grid-template-columns: auto auto;
     gap: 10px;
     justify-content: center; /* Centra horizontalmente las imágenes */
     margin: 0 400px;
